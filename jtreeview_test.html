@@ -1,0 +1,75 @@
+<html>
+	<head>
+	
+	<link rel="stylesheet" href="assets/styles.css" type="text/css" media="screen" charset="utf-8"/>
+    <script type="text/javascript" charset="utf-8" src="../lib/jquery-1.6.2.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="jtreeview.js"></script>
+    
+    <script>
+    	$(window).load( function( ) {
+    		$('#treeview').jtreeview( );
+    		
+    		$('#jsonTreeview').jtreeview( {
+    			data: [
+    				{	
+    					id: 'fooFolder',
+    					content: 'Foo',
+    					className: 'folderItem',
+    					children: [
+    						{
+    							id: 'bahItem',
+    							content: 'bah',
+    							className: 'fileItem'
+    						},
+    						{
+    							id: 'bazItem',
+    							content: 'baz',
+    							className: 'fileItem'
+    						}
+    					]
+    				},
+    				
+    				{
+    					id: 'topBahItem',
+    					content: 'Bah',
+    					className: 'fileItem'
+    				}
+    			]
+    		} );
+    		
+    		$('.fileItem').click( function( event ) {
+    			alert( $(this).attr( 'id' ) );
+    		} );
+    	} );
+    </script>
+    </head>
+    <body>
+    	<ul id="treeview">
+    		<li>Foo
+    			<ul>
+    				<li>Foobar</li>
+    				<li>Foobaz</li>
+    			</ul>
+    		</li>
+    		<li>Bah
+    			<ul>
+    				<li>Bahfoo</li>
+    				<li>Bahbaz
+    					<ul>
+    						<li>Bahbazfoo</li>
+    					</ul>
+    				</li>
+    			</ul>
+    		</li>
+    		<li>Baz
+    			<ul>
+    				<li>Bazbar</li>
+    				<li>Bazfoo</li>
+    			</ul>
+    		</li>
+    	</ul>
+    	<hr/>
+    	<ul id="jsonTreeview"></ul>
+    </body>
+</html>
